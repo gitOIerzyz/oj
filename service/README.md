@@ -10,7 +10,6 @@ Online judge 后端服务，基于 [FastAPI](https://fastapi.tiangolo.com/)，�
 - **本地用 SQLite 零配置开发/测试，生产用 PostgreSQL**（同一套 Alembic 迁移）
 
 ## API（REST 资源式）
-
 | 方法 | 路径 | 说明 | 鉴权 |
 |---|---|---|---|
 | POST | `/users` | 创建用户（注册），返回用户信息（201） | 否 |
