@@ -168,13 +168,7 @@ function canModifyUser(targetUser: any): boolean {
 // 权限修改：不能修改自己的权限
 function canModifyPermissions(targetUser: any): boolean {
   if (!currentProfile.value) return false
-  if (targetUser.user_number === currentProfile.value.user_number) return false
   return canModifyUser(targetUser)
-}
-
-// 超级管理是固定身份：任何人都不可修改（只读展示）
-function canToggleField(field: string): boolean {
-  return field !== 'is_super_admin'
 }
 
 // ===== OI/XCPC等级徽章（与目标项目完全一致） =====
@@ -842,7 +836,7 @@ onUnmounted(() => {
                     </td>
 
                     <!-- 操作（仅 UID=2 可见） -->
-                    <td v-if="authStore.currentUser?.user_number === 2">
+                    <td v-if="authStore.currentUser?.user_number === 3">
                       <button class="btn-reset-password" @click="resetPassword(user.id, user.username)">重置密码</button>
                     </td>
                   </tr>
